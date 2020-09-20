@@ -5,10 +5,10 @@ spring:
   application:
     name:
       eureka
-  security:
-    user:
-      name: srv-app-discovery
-      password: generat3aRand0mStrin5
+#  security:
+#    user:
+#      name: srv-app-discovery
+#      password: generat3aRand0mStrin5
 
 management:
   security:

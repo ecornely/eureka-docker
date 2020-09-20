@@ -16,7 +16,7 @@ services:
           - eureka1
     environment:
       eureka.instance.hostname: eureka1
-      eureka.client.serviceUrl.defaultZone: http://srv-app-discovery:generat3aRand0mStrin5@eureka1:8761/eureka/,http://srv-app-discovery:generat3aRand0mStrin5@eureka2:8761/eureka/
+      eureka.client.serviceUrl.defaultZone: http://eureka1:8761/eureka/,http://eureka2:8761/eureka/
   eureka-2:
     image: ecornely/eureka
     container_name: eureka2
@@ -30,7 +30,7 @@ services:
           - eureka2
     environment:
       eureka.instance.hostname: eureka2
-      eureka.client.serviceUrl.defaultZone: http://srv-app-discovery:generat3aRand0mStrin5@eureka1:8761/eureka/,http://srv-app-discovery:generat3aRand0mStrin5@eureka2:8761/eureka/
+      eureka.client.serviceUrl.defaultZone: http://eureka1:8761/eureka/,http://eureka2:8761/eureka/
 networks:
   static:
     external:
