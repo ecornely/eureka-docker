@@ -1,0 +1,29 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name:
+      eureka
+  security:
+    user:
+      name: srv-app-discovery
+      password: generat3aRand0mStrin5
+
+management:
+  security:
+    enabled: false
+
+logging:
+  file:
+    path: /opt
+  level:
+    be: TRACE
+    org.springframework: WARN
+    com.netflix.eureka: WARN
+    com.netflix.discovery: WARN
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  renewalPercentThreshold: 0.85

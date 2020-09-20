@@ -1,0 +1,4 @@
+FROM debian
+MAINTAINER Eric Cornely <ericcornely@gmail.com>
+RUN apt update -qq && apt install -qq -y openjdk-11-jdk-headless
+ENTRYPOINT ["bash"]

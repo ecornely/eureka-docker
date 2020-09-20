@@ -1,0 +1,37 @@
+version: '3.5'
+services:
+  eureka-1:
+    image: ecornely/eureka
+    build:
+      context: ../../..
+      dockerfile: src/main/resources/Dockerfile
+    container_name: eureka1
+    hostname: eureka1
+    ports:
+      - 8081:8761
+    networks:
+      static:
+        ipv4_address: 172.18.0.20
+        aliases:
+          - eureka1
+    environment:
+      eureka.instance.hostname: eureka1
+      eureka.client.serviceUrl.defaultZone: http://srv-app-discovery:generat3aRand0mStrin5@eureka1:8761/eureka/,http://srv-app-discovery:generat3aRand0mStrin5@eureka2:8761/eureka/
+  eureka-2:
+    image: ecornely/eureka
+    container_name: eureka2
+    hostname: eureka2
+    ports:
+      - 8082:8761
+    networks:
+      static:
+        ipv4_address: 172.18.0.21
+        aliases:
+          - eureka2
+    environment:
+      eureka.instance.hostname: eureka2
+      eureka.client.serviceUrl.defaultZone: http://srv-app-discovery:generat3aRand0mStrin5@eureka1:8761/eureka/,http://srv-app-discovery:generat3aRand0mStrin5@eureka2:8761/eureka/
+networks:
+  static:
+    external:
+      name: static

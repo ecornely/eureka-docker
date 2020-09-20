@@ -1,0 +1,30 @@
+server:
+  port: 8761
+  address: discovery1.local
+
+eureka: 
+  renewalPercentThreshold: 0.85
+  environment: local
+  instance: 
+    hostname: discovery1.local
+    appname: discovery
+    preferIpAddress: false
+  client:
+    health-check:
+      enabled: true
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl: 
+      defaultZone: http://srv-app-discovery:generat3aRand0mStrin5@discovery2.local:8762/eureka/
+
+management: 
+  security: 
+    enabled: false
+
+logging: 
+  level: 
+    be: trace
+    org.springframework: warn
+    com.netflix.eureka: debug
+    com.netflix.discovery: debug
+
